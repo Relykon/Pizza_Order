@@ -1,21 +1,21 @@
 $(document).ready(function() {
 
-function Pizza(size, sauce, cheese, toppings, price) {
+function Pizza(size, sauce, cheese, toppings) {
   this.size = size;
   this.sauce = sauce;
   this.cheese = cheese;
-  this.toppings = [];
-  this.price = price;
+  this.toppings = toppings;
+  // this.price = price;
 }
 
 Pizza.prototype.checkSize = function() {
-  if (this.size == "4") {
+  if (this.size == "S") {
     this.price += 10;
   }
-  else if (this.size == "3") {
+  else if (this.size == "M") {
     this.price += 12;
   }
-  else if (this.size == "2") {
+  else if (this.size == "L") {
     this.price += 14;
   }
   else {
@@ -44,29 +44,41 @@ Pizza.prototype.checkToppings = function() {
   }
 }
 
-
-//check sauce prototype
-
-//check cheese prototype
-
-
 // on form submit take in values from each form group to the pizza object
-  $("form#orderForm").click(function(event) {
+$("form#orderForm").submit(function(event) {
     event.preventDefault();
-
     var pizzaPrice = 0;
-    // grab values of size, sauce, cheese, toppings.
+    
+    var toppings = document.getElementsByName('topping');
+    var toppingSelect = [];
+    for (var i = 0; i < toppings.length; i++) {
+      if (toppings[i].checked) {
+        toppingSelect.push(toppings[i].value);
+      };
+    };
+    const size = $('input[name=size]:checked').val();
+    const sauce = $('input[name=sauce]:checked').val();
+    const poop = $('input[name=cheese]:checked').val();
+    var finishedPizza = new Pizza (size, sauce, poop, toppingSelect);
+
+    console.log(finishedPizza);
+// grab value of sauce
+// grab v of size
+// grab value of
+
+
+
+
+    // document.querySelector('form#orderForm').addEventListener('submit', function (e) {
+    //
+    //   e.preventDefault();
+    //
+    //   console.log(nameInput.value);
+    });
   });
-});
+// });
 
 
-//  var nameInput = document.getElementById('sauce2');
-//
-// document.querySelector('form#orderForm').addEventListener('submit', function (e) {
-  //
-  //     e.preventDefault();
-  //
-  //     console.log(nameInput.value);
 
 
   //   size.id = this.assignId();
