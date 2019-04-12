@@ -4,22 +4,10 @@ function Pizza(size, sauce, cheese, toppings, price) {
   this.size = size;
   this.sauce = sauce;
   this.cheese = cheese;
-  this.toppings = toppings;
+  this.toppings = [];
   this.price = price;
 }
 
-
-//check size prototype (add base price for each size)
-
-//check sauce prototype
-
-//check cheese prototype
-
-//check toppings protoype
-  //if size = small add $2 per topping
-  //if size = med add $3 per topping
-  //if size = large, add $4 per topping
-  //if size = XL add $5/topping
 Pizza.prototype.checkSize = function() {
   if (this.size == "4") {
     this.price += 10;
@@ -35,6 +23,31 @@ Pizza.prototype.checkSize = function() {
   }
 }
 
+Pizza.prototype.checkToppings = function() {
+  if (toppings.length === 0) {
+    this.price = this.price;
+  }
+  else if (toppings.length === 1) {
+    this.price += 1;
+  }
+  else if (toppings.length === 2) {
+    this.price += 2;
+  }
+  else if (toppings.length = 3) {
+    this.price += 3;
+  }
+  else if (toppings.length = 4) {
+    this.price += 4;
+  }
+  else {
+    this.price += 5;
+  }
+}
+
+
+//check sauce prototype
+
+//check cheese prototype
 
 
 // on form submit take in values from each form group to the pizza object
