@@ -1,3 +1,7 @@
+h1 {
+  font-size: 80px;
+  color: red;
+}
 .jumbotron {
   margin-top: 3%;
   background-image: url(../img/jumboPizza.webp);
@@ -5,5 +9,6 @@
   text-align: center;
   background-position: center;
   background-position-y: 25%;
-  color: #e00808;
+  color: white;
+  font-size: 35px;
 }
